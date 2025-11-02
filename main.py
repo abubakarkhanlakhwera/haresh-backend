@@ -16,16 +16,12 @@ load_dotenv()
 # Initialize FastAPI app
 app = FastAPI(title="Medical Assistant API", version="1.0.0")
 
-# Configure CORS
+# Configure CORS - Allow all origins for Vercel deployment
+# Vercel doesn't support wildcard subdomains properly, so we need to be more permissive
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",  # Local development
-        "https://haresh-frontend-2g76tb984-abubakarctns-projects.vercel.app",  # Vercel production
-        "https://haresh-frontend.vercel.app",  # Vercel production (if you have a custom domain)
-        "https://*.vercel.app",  # All Vercel preview deployments
-    ],
-    allow_credentials=True,
+    allow_origins=["*"],  # Allow all origins for now (you can restrict this later)
+    allow_credentials=False,  # Must be False when allow_origins is "*"
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -182,8 +178,23 @@ async def analyze_image(file: UploadFile = File(...)):
 
 @app.get("/health")
 async def health_check():
-    """Health check endpoint"""
-    return {"status": "healthy", "service": "Medical Assistant API"}
+    """Health check endpoint with detailed info"""
+    import sys
+    return {
+        "status": "healthy",
+        "service": "Medical Assistant API",
+        "version": "1.0.0",
+        "python_version": sys.version,
+        "openai_key_set": bool(os.getenv("OPENAI_API_KEY")),
+        "cors_enabled": True,
+        "endpoints": [
+            "/",
+            "/health",
+            "/api/chat",
+            "/api/chat/stream",
+            "/api/analyze-image"
+        ]
+    }
 
 
 if __name__ == "__main__":
