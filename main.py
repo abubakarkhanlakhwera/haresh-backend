@@ -19,7 +19,12 @@ app = FastAPI(title="Medical Assistant API", version="1.0.0")
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Next.js default port
+    allow_origins=[
+        "http://localhost:3000",  # Local development
+        "https://haresh-frontend-2g76tb984-abubakarctns-projects.vercel.app",  # Vercel production
+        "https://haresh-frontend.vercel.app",  # Vercel production (if you have a custom domain)
+        "https://*.vercel.app",  # All Vercel preview deployments
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
