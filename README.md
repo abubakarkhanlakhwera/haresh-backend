@@ -1,36 +1,32 @@
 # Haresh Backend
 
-Python API backend for an AI-assisted web application prototype.
+A Python API backend for an AI-assisted web application.
 
-## Overview
+## Purpose
 
-This is a AI/ML learning and prototype repository. It is part of my broader GitHub portfolio showing hands-on work across AI, web development, automation, and software engineering fundamentals.
+This backend appears to support an AI-assisted application with API endpoints and image-analysis logic. The repository is useful for showing how Python services can wrap AI features for a frontend.
 
-## What It Demonstrates
+## What This Shows
 
-- Practical implementation and experimentation rather than only theory.
-- Familiarity with the repository's core stack and development workflow.
-- Iterative learning through small projects, exercises, or prototypes.
+- Python API backend structure
+- AI/image-analysis service logic
+- Deployment-oriented files such as Vercel config
 
-## Tech Stack
+## Stack
 
-- Primary language: Python
-- Topics: ai-app, api, python
+- Python
+- API backend
+- AI application logic
 
-## Repository Structure
+## Status / Safety Note
 
-- Top-level folders: No top-level folders detected.
-- Top-level files: .gitignore, agent.py, image_analyzer.py, main.py, requirements.txt, start.bat, vercel.json
-
-## Status
-
-This repository is public today, but it should be reviewed before being promoted heavily in applications because the name/content suggests billing, operational, research, or client-style work.
+Review privacy before promoting because the name/content may relate to client-style work.
 
 ## Next Improvements
 
-- Add screenshots, sample outputs, or a short demo where relevant.
-- Expand setup instructions for local development.
-- Document the main learning outcome, architecture, and edge cases.
+- Clarify product name and user flow
+- Add API endpoint documentation
+- Keep secrets and client data out of the repo
 
 ## Author
 
